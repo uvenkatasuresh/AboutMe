@@ -1,154 +1,567 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume Profile</title>
+<!-- Google Fonts - Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet" />
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <style>
-body{
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: #f9fafb;
+    font-family: 'Inter', sans-serif;
+    color: #1f2937;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    user-select: none;
+  }
+  a {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: #1d4ed8;
+    outline: none;
+  }
 
- background-color: 	#F0F0F0	;
- background-repeat: no-repeat;
- background-attachment: fixed;
-  background-size: 100% 100%;
- 
-}
-.button {
-  background-color: yellow;
-  border: none;
-  color: black;
-  padding: 15px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 20px;
-  cursor: pointer;
-  font-weight: lighter;
-}
-h1{
-  padding: 25px 25px 0px 25px;
-  margin: 10px 0px;
-  color: gray;
-}
-h2{
-  padding: 0px  25px;
-  margin: 10px 2px;
-  color: gray;
-}
-p{
-  padding: 0px  25px;
-  margin: 10px 2px;
-  color: gray;
-}
-.LBlock {
-  background-color:  white;
-  list-style-type: none;
+  .container {
+    max-width: 900px;
+    margin: 48px auto;
+    background: white;
+    border-radius: 16px;
+    padding: 32px 48px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 1023px) {
+    .container {
+      grid-template-columns: 1fr;
+      padding: 24px 24px;
+      gap: 32px;
+    }
+  }
 
- 
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-  padding: 0;
-  margin: 20;
-  height: 100%;
-  width: 33%;
-  float: left;
-  
-}
-.RBlock1 {
-  background-color:  #F8F8F8;
-  list-style-type: none;
- 
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-  padding: 0;
-  margin: 20 1;
-  height: 50%;
-  width: 60%;
-  float: left;
-  height: auto;
-}
-.RBlock2 {
-  background-color:  #F8F8F8;
-  list-style-type: none;
- 
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-  padding: 0;
-  margin: 0 1;
-  height: 50%;
-  width: 60%;
-  float: left;
-}
-hr{
-  padding: 0;
-  margin: 0 30;
-border: 1px solid #E8E8E8	;
-}
-@media only screen and (max-width: 600px) {
-  
-  .LBlock {
-  background-color:  rgb(182, 255, 168);
-  list-style-type: none;
+  .sidebar {
+    text-align: center;
+  }
+  .profile-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(37,99,235,0.25);
+  }
+  .name {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+  .title {
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+  }
 
- 
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-  padding: 0;
-  margin: 20 1;
-width: 100%;
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+    color: #4b5563;
+    font-size: 0.95rem;
+  }
+  .contact-list li .material-icons {
+    font-size: 20px;
+    color: #2563eb;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .contact-link {
+    color: #2563eb;
+    word-break: break-word;
+  }
+  .contact-link:hover,
+  .contact-link:focus {
+    text-decoration: underline;
+  }
 
-}
-.RBlock1 {
-  background-color:  rgb(182, 255, 168);
-  list-style-type: none;
- 
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-  padding: 0;
-  margin: 20 1;
-width: 100%;
-}
-.RBlock2 {
-  background-color:  rgb(182, 255, 168);
-  list-style-type: none;
- 
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-  padding: 0;
-  margin: 0 1;
-width: 100%;
-}
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
 
-  
-  
-  
-}
+  h2.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 6px;
+    color: #1e40af;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h2.section-title .material-icons {
+    font-size: 28px;
+    color: #2563eb;
+  }
+
+  .profile-summary {
+    font-size: 1rem;
+    color: #374151;
+    line-height: 1.5;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .skill-badge {
+    background-color: #e0e7ff;
+    color: #4338ca;
+    padding: 8px 16px;
+    font-weight: 600;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  .skill-badge:hover,
+  .skill-badge:focus {
+    background-color: #c7d2fe;
+    outline: none;
+  }
+
+  /* Experience Timeline */
+  .experience-list {
+    position: relative;
+    margin-left: 24px;
+    padding-left: 18px;
+    border-left: 3px solid #2563eb;
+  }
+  .experience-item {
+    position: relative;
+    margin-bottom: 36px;
+    padding-left: 24px;
+  }
+  .experience-item:last-child {
+    margin-bottom: 0;
+  }
+  .experience-item::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border: 3px solid #2563eb;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(37, 99, 235, 0.5);
+  }
+  .job-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .job-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #1e3a8a;
+    margin: 0;
+  }
+  .company-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2563eb;
+    margin: 0;
+  }
+  .dates {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #4b5563;
+    white-space: nowrap;
+  }
+  .location {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-left: 12px;
+  }
+  .description {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.5;
+  }
+  .description ul {
+    padding-left: 20px;
+    margin: 8px 0 0 0;
+  }
+  .description ul li {
+    margin-bottom: 6px;
+    list-style: disc;
+  }
+
+
+  /* Education Timeline with badges */
+  .education-list {
+    position: relative;
+    margin-left: 24px;
+    padding-left: 18px;
+    border-left: 3px solid #10b981; /* Emerald green accent for education */
+  }
+  .education-item {
+    position: relative;
+    margin-bottom: 36px;
+    padding-left: 24px;
+  }
+  .education-item:last-child {
+    margin-bottom: 0;
+  }
+  .education-item::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border: 3px solid #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+  }
+  .degree-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #047857; /* Emerald dark */
+    margin: 0 0 4px 0;
+  }
+  .school-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #10b981;
+    margin: 0 0 4px 0;
+  }
+  .edu-dates {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #4b5563;
+    white-space: nowrap;
+  }
+  .edu-description {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.5;
+  }
+
+  /* Achievements Section */
+  .achievements-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 20px;
+    margin-top: 12px;
+  }
+  .achievement-card {
+    background: #eef6f1;
+    border-left: 6px solid #10b981;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(16,185,129,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .achievement-card:hover,
+  .achievement-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(16,185,129,0.35);
+    outline: none;
+  }
+  .achievement-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: #065f46; /* Darker emerald */
+  }
+  .achievement-description {
+    font-size: 0.95rem;
+    color: #065f46;
+    line-height: 1.4;
+  }
+
+  /* Certifications Cards */
+  .certifications-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 24px;
+    margin-top: 12px;
+  }
+  .cert-card {
+    background: #fff7ed;
+    border: 2px solid #fb923c; /* orange-400 */
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(251, 147, 60, 0.15);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .cert-card:hover,
+  .cert-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(251, 147, 60, 0.4);
+    outline: none;
+  }
+  .cert-icon {
+    font-size: 48px;
+    color: #ea580c; /* orange-600 */
+    flex-shrink: 0;
+  }
+  .cert-content {
+    flex: 1;
+  }
+  .cert-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0 0 8px 0;
+    color: #c34100; /* orange-800 */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cert-title .material-icons {
+    font-size: 28px;
+    color: #ea580c;
+  }
+  .cert-org {
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0 0 4px 0;
+    color: #fb923c; /* orange-400 */
+  }
+  .cert-dates {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #4b5563;
+    margin-bottom: 8px;
+  }
+  .cert-description {
+    font-size: 0.95rem;
+    color: #6b4b0d;
+    line-height: 1.5;
+  }
+
+  /* Accessibility focus styles */
+  .skill-badge:focus,
+  .contact-link:focus,
+  a:focus,
+  .achievement-card:focus,
+  .cert-card:focus {
+    outline: 3px solid #fb923c; /* orange-400 */
+    outline-offset: 3px;
+  }
 </style>
 </head>
 <body>
-<div class="LBlock">
-<h1>Ummadisetty Venkata Suresh</h1>
-<h2>Middleware & DevOps Specialist</h2>
-<a href="https://www.w3schools.com/howto/tryw3css_templates_cv.htm" class="button">Hire Me</a>
-</div>
-<div class="RBlock1">
-<h1>Experience Summary</h1>
-<p>Having Experience in the field of WebLogic, Tomcat , Keberneties and OpenShift with experience of WebSphere Application Server, Jboss and having knowledge on ShellScripting basic knowledge Jenkins, and Github.</p>
-<h1>Work Experience</h1>
-<h2>Specialist / LTIMindtree:</h2>
-<p>10th Feb - 2020 to till date
-</p>
-<br>
-<hr>
-<br>
-<h2>IT Consultant / Ericsson</h2>
-<p>From 3rd Jun - 2019 To 31st Jan - 2020.
-</p>
-<br>
-<hr>
-<br>
-<h2>Technology Analyst / Infosys Limited</h2>
-<p>From 27th Feb -2017 To 31st Jun - 2019.
-</p>
-<br>
-<hr>
-<br>
-</div>
-<div class="RBlock2">
-<h1>Ummadisetty Venkata Suresh</h1>
-<h2>Middleware & DevOps Specialist</h2></div>
+  <main class="container" role="main" aria-label="Resume profile">
+    <aside class="sidebar" role="complementary" aria-label="Profile picture and contact information">
+      <img src="https://media.licdn.com/dms/image/v2/C5103AQFgDRJWBwXTBQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1527257870234?e=1755129600&v=beta&t=3zO8rz594HHoxMs4hdsevKlZAXN4G5xL6yUQL3MCgUo" alt="Professional headshot of your name, smiling, wearing business casual" class="profile-photo" />
+      <h1 class="name">Venkata Suresh Ummadisetty</h1>
+      <p class="title">Senior Consultancy </p>
+
+      <ul class="contact-list" aria-label="Contact information">
+        <li>
+          <span class="material-icons" aria-hidden="true">email</span>
+          <a href="mailto:uvenkatasuresh@gmail.com" class="contact-link">uvenkatasuresh@gmail.com</a>
+        </li>
+        <li>
+      <span class="material-icons" aria-hidden="true">phone</span>
+      <span class="contact-link" style="font-weight: bold;">+91 &nbsp 7842220162</span>
+    </li>
+	 <li>
+      <span class="material-icons" aria-hidden="true">location_on</span>
+      <span class="contact-link" style="font-weight: bold;">Banglore, India</span>
+    </li>
+    <li>
+      <span class="material-icons" aria-hidden="true">link</span>
+      <a href="https://www.linkedin.com/in/venkata-suresh-ummadisetty/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn profile">linkedin.com/in/venkata-suresh-ummadisetty/</a>
+    </li>
+    <li>
+      <span class="material-icons" aria-hidden="true">code</span>
+      <a href="https://github.com/uvenkatasuresh" target="_blank" rel="noopener" class="contact-link" aria-label="GitHub profile">github.com/uvenkatasuresh</a>
+    </li>
+	
+      </ul>
+    </aside>
+
+    <section class="main">
+      <section aria-labelledby="profile-summary-title">
+        <h2 id="profile-summary-title" class="section-title"><span class="material-icons" aria-hidden="true">person</span> Profile</h2>
+        <p class="profile-summary">
+          Having 8 years of experience in the field of <b>WebLogic, Tomcat , Keberneties</b> and <b>OpenShift</b> with experience of <b>WebSphere Application Server, Jboss</b> and having knowledge on <b>shell scripting basic knowledge Jenkins,</b> and <b>Github.</b>
+        </p>
+      </section>
+
+      <section aria-labelledby="skills-title">
+        <h2 id="skills-title" class="section-title"><span class="material-icons" aria-hidden="true">build</span> Skills</h2>
+        <div class="skills-list" role="list">
+          <span class="skill-badge" role="listitem" tabindex="0">Weblogic</span>
+          <span class="skill-badge" role="listitem" tabindex="0">Tomcat</span>
+          <span class="skill-badge" role="listitem" tabindex="0">Websphere</span>
+          <span class="skill-badge" role="listitem" tabindex="0">Jboss</span>
+          <span class="skill-badge" role="listitem" tabindex="0">OHS</span>
+          <span class="skill-badge" role="listitem" tabindex="0">IHS</span>
+          <span class="skill-badge" role="listitem" tabindex="0">Apache Web Server</span>
+          <span class="skill-badge" role="listitem" tabindex="0">Docker</span>
+		  <span class="skill-badge" role="listitem" tabindex="0">Kubernetes</span>
+		  <span class="skill-badge" role="listitem" tabindex="0">Openshift</span>
+		  <span class="skill-badge" role="listitem" tabindex="0">Shell Scripting</span>
+        </div>
+      </section>
+
+      <section aria-labelledby="experience-title">
+        <h2 id="experience-title" class="section-title"><span class="material-icons" aria-hidden="true">work</span> Experience</h2>
+        <ul class="experience-list">
+          <li class="experience-item">
+            <div class="job-header">
+              <h3 class="job-title">Senior Consultancy</h3>
+              <div class="dates" aria-label="Duration: January 2020 to Present">Nov 2024 – Present</div>
+            </div>
+            <div class="company-name">Oracle</div>
+            <div class="location"><span class="material-icons" aria-hidden="true" style="font-size:16px;vertical-align:middle;">place</span>Banglore, India | Hybrid</div>
+            <p class="description">
+              Led development of a cloud-based SaaS platform with the following achievements:
+            </p>
+            <ul class="description">
+              <li>Improved platform performance by 30% through code optimization and infrastructure tuning.</li>
+              <li>Mentored junior developers to improve team efficiency and code quality.</li>
+              <li>Collaborated closely with UX/UI teams to deliver user-friendly interfaces.</li>
+            </ul>
+          </li>
+          <li class="experience-item">
+            <div class="job-header">
+              <h3 class="job-title">Software Engineer</h3>
+              <div class="dates" aria-label="Duration: June 2016 to December 2019">Jun 2016 – Dec 2019</div>
+            </div>
+            <div class="company-name">Innovatech Labs</div>
+            <div class="location"><span class="material-icons" aria-hidden="true" style="font-size:16px;vertical-align:middle;">place</span> New York, NY</div>
+            <p class="description">
+              Key contributions:
+            </p>
+            <ul class="description">
+              <li>Developed front-end features using React, enhancing user interactivity.</li>
+              <li>Integrated RESTful APIs to streamline data exchange between front-end and back-end.</li>
+              <li>Contributed to the automation of CI/CD pipelines improving deployment efficiency.</li>
+              <li>Received Employee of the Year award in 2018 for outstanding performance.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="education-title">
+        <h2 id="education-title" class="section-title"><span class="material-icons" aria-hidden="true">school</span> Education</h2>
+        <ul class="education-list" role="list">
+          <li class="education-item" role="listitem">
+            <h3 class="degree-title">Bachelor of Science in Computer Science</h3>
+            <p class="school-name">State University</p>
+            <p class="edu-dates" aria-label="Graduated in 2016">2012 – 2016</p>
+            <p class="edu-description">Graduated with honors. Relevant courses: Data Structures, Algorithms, Web Development, and Database Systems.</p>
+          </li>
+          <li class="education-item" role="listitem">
+            <h3 class="degree-title">Certified AWS Solutions Architect</h3>
+            <p class="school-name">Amazon Web Services</p>
+            <p class="edu-dates" aria-label="Certification obtained in 2021">2021</p>
+            <p class="edu-description">Focused on designing and deploying scalable, highly available systems on AWS.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="achievements-title">
+        <h2 id="achievements-title" class="section-title"><span class="material-icons" aria-hidden="true">emoji_events</span> Achievements</h2>
+        <div class="achievements-list" role="list">
+          <article class="achievement-card" role="listitem" tabindex="0">
+            <h3 class="achievement-title">Employee of the Year 2018</h3>
+            <p class="achievement-description">Recognized for exceptional performance and commitment to delivering high-quality software solutions at Innovatech Labs.</p>
+          </article>
+          <article class="achievement-card" role="listitem" tabindex="0">
+            <h3 class="achievement-title">Open Source Contributor</h3>
+            <p class="achievement-description">Contributed to popular JavaScript libraries and frameworks, including bug fixes and new feature development.</p>
+          </article>
+          <article class="achievement-card" role="listitem" tabindex="0">
+            <h3 class="achievement-title">Certified ScrumMaster (CSM)</h3>
+            <p class="achievement-description">Agile Scrum certification demonstrating expertise in managing agile teams and delivering iterative software projects.</p>
+          </article>
+          <article class="achievement-card" role="listitem" tabindex="0">
+            <h3 class="achievement-title">Speaker at TechCon 2022</h3>
+            <p class="achievement-description">Presented on modern web development practices including React hooks and state management to an audience of 500+ engineers.</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="certifications-title">
+        <h2 id="certifications-title" class="section-title"><span class="material-icons" aria-hidden="true">card_membership</span> Certifications</h2>
+        <div class="certifications-cards" role="list">
+          <article class="cert-card" role="listitem" tabindex="0">
+            <span class="material-icons cert-icon" aria-hidden="true" title="Certificate Icon">card_membership</span>
+            <div class="cert-content">
+              <h3 class="cert-title">AWS Certified Solutions Architect – Associate</h3>
+              <p class="cert-org">Amazon Web Services</p>
+              <p class="cert-dates" aria-label="Certification date: March 2022">March 2022</p>
+              <p class="cert-description">This certification validates expertise in designing and deploying scalable systems on AWS.</p>
+            </div>
+          </article>
+
+          <article class="cert-card" role="listitem" tabindex="0">
+            <span class="material-icons cert-icon" aria-hidden="true" title="Certificate Icon">card_membership</span>
+            <div class="cert-content">
+              <h3 class="cert-title">Google Professional Cloud Architect</h3>
+              <p class="cert-org">Google Cloud</p>
+              <p class="cert-dates" aria-label="Certification date: August 2021">August 2021</p>
+              <p class="cert-description">Recognizes proficiency in designing, developing, and managing Google Cloud architecture solutions.</p>
+            </div>
+          </article>
+
+          <article class="cert-card" role="listitem" tabindex="0">
+            <span class="material-icons cert-icon" aria-hidden="true" title="Certificate Icon">card_membership</span>
+            <div class="cert-content">
+              <h3 class="cert-title">Certified Kubernetes Administrator (CKA)</h3>
+              <p class="cert-org">Cloud Native Computing Foundation</p>
+              <p class="cert-dates" aria-label="Certification date: January 2023">January 2023</p>
+              <p class="cert-description">Demonstrates skill in managing Kubernetes clusters and containerized applications.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
 </body>
 </html>
+
